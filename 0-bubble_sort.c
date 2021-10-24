@@ -18,8 +18,8 @@ void swap_int(int *first_number, int *second_number)
 
 /**
  * bubble_sort - sort a array in ascending order
- * @array - Array to sort
- * @size - Size of the array
+ * @array: Array to sort
+ * @size: Size of the array
  *
  * Return: None
  */
@@ -30,7 +30,7 @@ void bubble_sort(int *array, size_t size)
 	if (!array || size < 2)
 		return;
 	for (i = 0 ; i < size - 1 ; i++)
-		for(j = 0 ; j < size - i - 1 ; j++)
+		for (j = 0 ; j < size - i - 1 ; j++)
 			if (array[j] > array[j + 1])
 			{
 				swap_int(array + j, array + j + 1);
