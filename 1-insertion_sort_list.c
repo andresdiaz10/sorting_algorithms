@@ -26,7 +26,8 @@ void insertion_sort_list(listint_t **list)
 			aux->next->prev = aux;
 			if (aux->prev != NULL)
 				aux->prev->next = aux;
-			*list = aux;
+			else
+				*list = aux;
 			print_list(*list);
 		}
 		aux = p;
