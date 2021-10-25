@@ -27,17 +27,17 @@ void swap_int(int *first_number, int *second_number)
 void selection_sort(int *array, size_t size)
 {
 	size_t i, j;
-	int min_number;
+	int *min_number;
 
 	if (!array || size < 2)
 		return;
 	for (i = 0 ; i < size - 1 ; i++)
 	{
-		min_number = i;
+		min_number = array + i;
 		for (j = i + 1 ; j < size ; j++)
-			if (array[j] < array[min_number])
-				min_number = j;
-		if (array[i] != min_number)
+			if (array[j] < *min_number)
+				min_number = array + j;
+		if (&array[i] != min_number)
 		{
 			swap_int(array + min_number, array + i);
 			print_array(array, size);
