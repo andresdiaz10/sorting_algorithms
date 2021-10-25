@@ -1,10 +1,11 @@
 #ifndef SORT_H
 #define SORT_H
 
+/* Libraries */
 #include <stdio.h>
 #include <stdlib.h>
 
-
+/* Structs */
 /**
  * struct listint_s - Doubly linked list node
  *
@@ -31,4 +32,5 @@ void quick_sort(int *array, size_t size);
 
 /* Utility */
 void swap_int(int *first_number, int *second_number);
+
 #endif
