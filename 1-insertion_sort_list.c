@@ -24,10 +24,10 @@ void insertion_sort_list(listint_t **list)
 			aux->next = aux->prev;
 			aux->prev = aux->next->prev;
 			aux->next->prev = aux;
-			if (aux->prev == NULL)
-				(*list) = aux;
-			else
+			if (aux->prev != NULL)
 				aux->prev->next = aux;
+			else
+				*list = aux;
 			print_list(*list);
 		}
 		aux = p;
