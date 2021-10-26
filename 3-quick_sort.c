@@ -1,6 +1,24 @@
 #include "sort.h"
 
 /**
+ * _swap - swap two elements into the array
+ * @array: array to be sorted
+ * @first: lowest idx
+ * @second: highest idx
+ * @size: the size of the @array
+ */
+void _swap(int *array, int first, int second, size_t size)
+{
+	int aux;
+
+	aux = array[first];
+	array[first] = array[second];
+	array[second] = aux;
+	if (array[first] != array[second])
+		print_array(array, size);
+}
+
+/**
  * lomuto - algorithm to partition an array into two
  * parts based on a given condition.
  * @array: array to be sorted
@@ -11,7 +29,7 @@
  */
 size_t lomuto(int *array, int low, int high, size_t size)
 {
-	int pivot, i, j, aux, temp;
+	int pivot, i, j;
 
 	pivot = array[high];
 	i = low;
@@ -21,20 +39,12 @@ size_t lomuto(int *array, int low, int high, size_t size)
 	{
 		if (pivot >= array[i])
 		{
-			aux = array[i];
-			array[i] = array[j];
-			array[j] = aux;
-			if (array[i] != array[j])
-				print_array(array, size);
+			_swap(array, i, j, size);
 			j++;
 		}
 		i++;
 	}
-	temp = array[j];
-	array[j] = high;
-	high = temp;
-	if (array[j] != high)
-		print_array(array, size);
+	_swap(array, j, high, size);
 	return (j);
 }
 
