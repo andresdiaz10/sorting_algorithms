@@ -9,7 +9,7 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *aux, *p;
 
-	if (*list == NULL || list == NULL || (*list)->next == NULL)
+	if (*list == NULL)
 		return;
 	aux = (*list)->next;
 	while (aux != NULL)
@@ -24,10 +24,10 @@ void insertion_sort_list(listint_t **list)
 			aux->next = aux->prev;
 			aux->prev = aux->next->prev;
 			aux->next->prev = aux;
-			if (aux->prev != NULL)
-				aux->prev->next = aux;
+			if (aux->prev == NULL)
+				(*list) = aux;
 			else
-				*list = aux;
+				aux->prev->next = aux;
 			print_list(*list);
 		}
 		aux = p;
