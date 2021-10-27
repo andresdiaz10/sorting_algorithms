@@ -60,10 +60,10 @@ void sort_array(int *array, int low, int high, size_t size)
 {
 	int idx;
 
-	if (low < high)
+	if (high - low > 0)
 	{
 		idx = lomuto(array, low, high, size);
-		sort_array(array, low, high - 1, size);
+		sort_array(array, low, idx - 1, size);
 		sort_array(array, idx + 1, high, size);
 	}
 }
